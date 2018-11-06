@@ -469,7 +469,8 @@ int main(int argc, char **argv) {
 
     if (my_rank == MASTER) {
         ListaDNA *current = listaBase;
-        
+        FILE *fhello = fopen("hello_master.txt","w");
+        fclose(fhello);
         // percorre lista de bases para distribuir entre os processos
         while (current != NULL) {
 
@@ -570,6 +571,8 @@ int main(int argc, char **argv) {
     }
 
     else {
+        FILE *fhello = fopen("hello_slave.txt","w");
+        fclose(fhello);
         while (1) {
             int tam;
             int offset;
